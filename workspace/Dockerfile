@@ -1281,6 +1281,17 @@ RUN if [ ${INSTALL_GIT_PROMPT} = true ]; then \
 
 RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
 
+###########################################################################
+# Locales:
+###########################################################################
+
+RUN apt-get update && apt-get install -y \
+    locales \
+    && echo '' >> /usr/share/locale/locale.alias \
+    && sed -i 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen \
+    && sed -i 's/# da_DK.UTF-8 UTF-8/da_DK.UTF-8 UTF-8/' /etc/locale.gen \
+    && locale-gen
+
 #
 #--------------------------------------------------------------------------
 # Final Touch

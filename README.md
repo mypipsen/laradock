@@ -33,6 +33,45 @@
 
 ---
 
+## Scripts
+
+Enter the Workspace container:
+```
+#!/bin/bash
+cd laradock
+docker-compose exec --user=laradock workspace bash
+```
+
+Open MariaDB shell:
+```
+#!/bin/bash
+cd laradock
+docker-compose exec mariadb sh -c "mysql -u root -p"
+```
+
+Open MongoDB shell:
+```
+#!/bin/bash
+cd laradock
+docker-compose exec mongo sh -c "mongo"
+```
+
+Open Redis CLI:
+```
+#!/bin/bash
+cd laradock
+docker-compose exec redis sh -c "redis-cli"
+```
+
+Delete everything in Redis:
+```
+#!/bin/bash
+cd laradock
+docker-compose exec redis sh -c "redis-cli --scan --pattern '*' | xargs redis-cli del"
+```
+
+---
+
 <a name="Chat"></a>
 ## Chat with us
 
