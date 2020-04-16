@@ -481,6 +481,7 @@ services:
 
 ### PostgreSQL ###########################################
     postgres:
+      restart: always
       build:
         context: ./postgres
         args:
