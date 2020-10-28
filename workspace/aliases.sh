@@ -115,6 +115,10 @@ alias gbr="git branch"
 alias gc="git commit"
 alias gck="git checkout"
 
+# kodus
+alias kodus="vendor/bin/kodus"
+alias codecept="vendor/bin/codecept"
+
 # Create a new directory and enter it
 function mkd() {
     mkdir -p "$@" && cd "$@"
